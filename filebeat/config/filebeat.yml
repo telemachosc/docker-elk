@@ -1,0 +1,16 @@
+filebeat:
+  inputs:     
+    - paths:        
+      - /var/lib/docker/containers/*/*.log          
+      document_type: syslog     
+      
+processors:
+   - add_docker_metadata: ~
+
+output:
+  logstash:  
+    hosts:
+      - logstash:5044 
+
+
+    
