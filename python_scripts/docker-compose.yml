@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  python_test_docker:
+    build:
+      context: ./python_test_docker
+
+
+  test_docker_2:
+    build:
+      context: ./test_docker_2
