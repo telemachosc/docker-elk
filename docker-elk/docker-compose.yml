@@ -11,6 +11,10 @@ services:
         source: ./elasticsearch/config/elasticsearch.yml
         target: /usr/share/elasticsearch/config/elasticsearch.yml
         read_only: true
+      - type: bind
+        source: ./elasticsearch/config/http.p12
+        target: /usr/share/elasticsearch/config/http.p12
+        read_only: true
       - type: volume
         source: elasticsearch
         target: /usr/share/elasticsearch/data
@@ -60,6 +64,10 @@ services:
       - type: bind
         source: ./kibana/config/kibana.yml
         target: /usr/share/kibana/config/kibana.yml
+        read_only: true
+      - type: bind
+        source: ./kibana/config/elasticsearch-ca.pem
+        target: /usr/share/kibana/config/elasticsearch-ca.pem
         read_only: true
     ports:
       - "5601:5601"

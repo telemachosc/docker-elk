@@ -11,3 +11,10 @@ network.host: 0.0.0.0
 xpack.license.self_generated.type: trial
 xpack.security.enabled: true
 xpack.monitoring.collection.enabled: true
+
+
+# This turns on SSL for the HTTP (Rest) interface
+xpack.security.http.ssl.enabled: true
+
+# This configures the keystore to use for SSL on HTTP
+xpack.security.http.ssl.keystore.path: "http.p12"
