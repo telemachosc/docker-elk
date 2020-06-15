@@ -41,6 +41,10 @@ services:
         target: /usr/share/logstash/config/logstash.yml
         read_only: true
       - type: bind
+        source: ./logstash/config/certs
+        target: /usr/share/logstash/config/certs
+        read_only: true
+      - type: bind
         source: ./logstash/pipeline
         target: /usr/share/logstash/pipeline
         read_only: true
@@ -75,12 +79,14 @@ services:
       - elk
     depends_on:
       - elasticsearch
+
   filebeat:
     image: docker.elastic.co/beats/filebeat:$ELK_VERSION
     command: filebeat -e -strict.perms=false
     user: root
     volumes: 
       - "./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
+      - "./filebeat/config/certs:/usr/share/filebeat/certs:ro"
       - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     depends_on: 

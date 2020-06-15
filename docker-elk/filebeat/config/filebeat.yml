@@ -23,7 +23,9 @@ processors:
 output:
   logstash:  
     hosts:
-      - logstash:5044 
+      - logstash:5044
+    ssl.certificate_authorities:
+      - /usr/share/filebeat/config/certs/ca.crt 
 
 
 # Write Filebeat own logs only to file to avoid catching them with itself in docker log files
