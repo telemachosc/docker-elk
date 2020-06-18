@@ -7,7 +7,7 @@ filebeat:
 processors:
  # decode the log field (sub JSON document) if JSON encoded, then maps it's fields to elasticsearch fields
   - decode_json_fields:
-      fields: ["level", "name", "message", "exc_info"]
+      fields: ["level", "module", "message", "exc_info"]
       target: ""
       max_depth: 2
       process_array: true
@@ -24,8 +24,7 @@ output:
   logstash:  
     hosts:
       - logstash:5044
-    ssl.certificate_authorities:
-      - /usr/share/filebeat/config/certs/ca.crt 
+
 
 
 # Write Filebeat own logs only to file to avoid catching them with itself in docker log files
