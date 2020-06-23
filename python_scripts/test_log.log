@@ -1,0 +1,6 @@
+{"level": "INFO", "message": "This will be printed", "module": "Logger"}
+{"level": "WARNING", "message": "and this", "module": "Logger"}
+{"level": "ERROR", "message": "division by zero", "module": "Logger", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\dv-user\\Desktop\\aih_log\\docker-elk\\python_scripts\\test_docker_1\\Logger.py\", line 116, in <module>\n    c = a/b\nZeroDivisionError: division by zero"}
+{"level": "INFO", "message": "This will be printed", "module": "Logger"}
+{"level": "WARNING", "message": "and this", "module": "Logger"}
+{"level": "ERROR", "message": "division by zero", "module": "Logger", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\dv-user\\Desktop\\aih_log\\docker-elk\\python_scripts\\test_docker_1\\Logger.py\", line 116, in <module>\n    c = a/b\nZeroDivisionError: division by zero"}

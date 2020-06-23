@@ -2,6 +2,11 @@ FROM python:3.7-alpine
 
 ENV PYTHONUNBUFFERED 1
 
-ADD test_1.py /
+COPY ./requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
 
-CMD [ "python", "./test_1.py" ]
+RUN mkdir /test_docker_1
+WORKDIR /test_docker_1
+COPY . /test_docker_1
+
+CMD python ./test_1.py

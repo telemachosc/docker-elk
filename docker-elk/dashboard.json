@@ -1,0 +1,140 @@
+{
+  "version": "7.7.1",
+  "objects": [
+    {
+      "id": "788428e0-b472-11ea-a4df-7d083449e65e",
+      "type": "dashboard",
+      "updated_at": "2020-06-22T10:23:52.939Z",
+      "version": "WzE4Nyw1XQ==",
+      "attributes": {
+        "title": "Log levels",
+        "hits": 0,
+        "description": "",
+        "panelsJSON": "[{\"embeddableConfig\":{},\"gridData\":{\"h\":18,\"i\":\"bb6b90a0-8b84-4507-9d46-8e68c47beb53\",\"w\":27,\"x\":0,\"y\":0},\"panelIndex\":\"bb6b90a0-8b84-4507-9d46-8e68c47beb53\",\"version\":\"7.7.1\",\"panelRefName\":\"panel_0\"}]",
+        "optionsJSON": "{\"hidePanelTitles\":false,\"useMargins\":true}",
+        "version": 1,
+        "timeRestore": false,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+        }
+      },
+      "references": [
+        {
+          "name": "panel_0",
+          "type": "lens",
+          "id": "b7d361a0-b46d-11ea-a4df-7d083449e65e"
+        }
+      ],
+      "migrationVersion": {
+        "dashboard": "7.3.0"
+      }
+    },
+    {
+      "id": "b7d361a0-b46d-11ea-a4df-7d083449e65e",
+      "type": "lens",
+      "updated_at": "2020-06-22T09:49:51.673Z",
+      "version": "WzE3MSw1XQ==",
+      "attributes": {
+        "title": "Log level per container",
+        "visualizationType": "lnsXY",
+        "expression": "kibana\n| kibana_context  query=\"{\\\"query\\\":\\\"\\\",\\\"language\\\":\\\"kuery\\\"}\" filters=\"[]\"\n| lens_merge_tables layerIds=\"3f111e4e-2eaf-4e3b-a135-2235557cf965\" \n  tables={esaggs index=\"18a33d30-b215-11ea-b708-616c8a24dacb\" metricsAtAllLevels=false partialRows=false includeFormatHints=true aggConfigs={lens_auto_date aggConfigs=\"[{\\\"id\\\":\\\"c57a4a73-1a40-4cfe-a82a-6fe8b88032c7\\\",\\\"enabled\\\":true,\\\"type\\\":\\\"terms\\\",\\\"schema\\\":\\\"segment\\\",\\\"params\\\":{\\\"field\\\":\\\"container.id.keyword\\\",\\\"orderBy\\\":\\\"3148822e-85d2-4a6b-b84b-45a1f6905fc4\\\",\\\"order\\\":\\\"desc\\\",\\\"size\\\":3,\\\"otherBucket\\\":false,\\\"otherBucketLabel\\\":\\\"Other\\\",\\\"missingBucket\\\":false,\\\"missingBucketLabel\\\":\\\"Missing\\\"}},{\\\"id\\\":\\\"6414e9f7-10a3-4a32-976c-fdc3ffb5d56a\\\",\\\"enabled\\\":true,\\\"type\\\":\\\"terms\\\",\\\"schema\\\":\\\"segment\\\",\\\"params\\\":{\\\"field\\\":\\\"log.level.keyword\\\",\\\"orderBy\\\":\\\"3148822e-85d2-4a6b-b84b-45a1f6905fc4\\\",\\\"order\\\":\\\"desc\\\",\\\"size\\\":8,\\\"otherBucket\\\":false,\\\"otherBucketLabel\\\":\\\"Other\\\",\\\"missingBucket\\\":false,\\\"missingBucketLabel\\\":\\\"Missing\\\"}},{\\\"id\\\":\\\"3148822e-85d2-4a6b-b84b-45a1f6905fc4\\\",\\\"enabled\\\":true,\\\"type\\\":\\\"count\\\",\\\"schema\\\":\\\"metric\\\",\\\"params\\\":{}}]\"} | lens_rename_columns idMap=\"{\\\"col-0-c57a4a73-1a40-4cfe-a82a-6fe8b88032c7\\\":{\\\"label\\\":\\\"Top values of container.id.keyword\\\",\\\"dataType\\\":\\\"string\\\",\\\"operationType\\\":\\\"terms\\\",\\\"scale\\\":\\\"ordinal\\\",\\\"sourceField\\\":\\\"container.id.keyword\\\",\\\"isBucketed\\\":true,\\\"params\\\":{\\\"size\\\":3,\\\"orderBy\\\":{\\\"type\\\":\\\"column\\\",\\\"columnId\\\":\\\"3148822e-85d2-4a6b-b84b-45a1f6905fc4\\\"},\\\"orderDirection\\\":\\\"desc\\\"},\\\"id\\\":\\\"c57a4a73-1a40-4cfe-a82a-6fe8b88032c7\\\"},\\\"col-1-6414e9f7-10a3-4a32-976c-fdc3ffb5d56a\\\":{\\\"label\\\":\\\"Top values of log.level.keyword\\\",\\\"dataType\\\":\\\"string\\\",\\\"operationType\\\":\\\"terms\\\",\\\"scale\\\":\\\"ordinal\\\",\\\"sourceField\\\":\\\"log.level.keyword\\\",\\\"isBucketed\\\":true,\\\"params\\\":{\\\"size\\\":8,\\\"orderBy\\\":{\\\"type\\\":\\\"column\\\",\\\"columnId\\\":\\\"3148822e-85d2-4a6b-b84b-45a1f6905fc4\\\"},\\\"orderDirection\\\":\\\"desc\\\"},\\\"id\\\":\\\"6414e9f7-10a3-4a32-976c-fdc3ffb5d56a\\\"},\\\"col-2-3148822e-85d2-4a6b-b84b-45a1f6905fc4\\\":{\\\"label\\\":\\\"Count of records\\\",\\\"dataType\\\":\\\"number\\\",\\\"operationType\\\":\\\"count\\\",\\\"isBucketed\\\":false,\\\"scale\\\":\\\"ratio\\\",\\\"sourceField\\\":\\\"Records\\\",\\\"id\\\":\\\"3148822e-85d2-4a6b-b84b-45a1f6905fc4\\\"}}\"}\n| lens_xy_chart xTitle=\"Top values of log.level.keyword\" yTitle=\"Count of records\" legend={lens_xy_legendConfig isVisible=true position=\"right\"} \n  layers={lens_xy_layer layerId=\"3f111e4e-2eaf-4e3b-a135-2235557cf965\" hide=false xAccessor=\"6414e9f7-10a3-4a32-976c-fdc3ffb5d56a\" yScaleType=\"linear\" xScaleType=\"ordinal\" isHistogram=false splitAccessor=\"c57a4a73-1a40-4cfe-a82a-6fe8b88032c7\" seriesType=\"bar_horizontal\" accessors=\"3148822e-85d2-4a6b-b84b-45a1f6905fc4\" columnToLabel=\"{\\\"3148822e-85d2-4a6b-b84b-45a1f6905fc4\\\":\\\"Count of records\\\",\\\"c57a4a73-1a40-4cfe-a82a-6fe8b88032c7\\\":\\\"Top values of container.id.keyword\\\"}\"}",
+        "state": {
+          "datasourceStates": {
+            "indexpattern": {
+              "currentIndexPatternId": "18a33d30-b215-11ea-b708-616c8a24dacb",
+              "layers": {
+                "3f111e4e-2eaf-4e3b-a135-2235557cf965": {
+                  "indexPatternId": "18a33d30-b215-11ea-b708-616c8a24dacb",
+                  "columns": {
+                    "6414e9f7-10a3-4a32-976c-fdc3ffb5d56a": {
+                      "label": "Top values of log.level.keyword",
+                      "dataType": "string",
+                      "operationType": "terms",
+                      "scale": "ordinal",
+                      "sourceField": "log.level.keyword",
+                      "isBucketed": true,
+                      "params": {
+                        "size": 8,
+                        "orderBy": {
+                          "type": "column",
+                          "columnId": "3148822e-85d2-4a6b-b84b-45a1f6905fc4"
+                        },
+                        "orderDirection": "desc"
+                      }
+                    },
+                    "c57a4a73-1a40-4cfe-a82a-6fe8b88032c7": {
+                      "label": "Top values of container.id.keyword",
+                      "dataType": "string",
+                      "operationType": "terms",
+                      "scale": "ordinal",
+                      "sourceField": "container.id.keyword",
+                      "isBucketed": true,
+                      "params": {
+                        "size": 3,
+                        "orderBy": {
+                          "type": "column",
+                          "columnId": "3148822e-85d2-4a6b-b84b-45a1f6905fc4"
+                        },
+                        "orderDirection": "desc"
+                      }
+                    },
+                    "3148822e-85d2-4a6b-b84b-45a1f6905fc4": {
+                      "label": "Count of records",
+                      "dataType": "number",
+                      "operationType": "count",
+                      "isBucketed": false,
+                      "scale": "ratio",
+                      "sourceField": "Records"
+                    }
+                  },
+                  "columnOrder": [
+                    "c57a4a73-1a40-4cfe-a82a-6fe8b88032c7",
+                    "6414e9f7-10a3-4a32-976c-fdc3ffb5d56a",
+                    "3148822e-85d2-4a6b-b84b-45a1f6905fc4"
+                  ]
+                }
+              }
+            }
+          },
+          "datasourceMetaData": {
+            "filterableIndexPatterns": [
+              {
+                "id": "18a33d30-b215-11ea-b708-616c8a24dacb",
+                "title": "filebeat*"
+              }
+            ]
+          },
+          "visualization": {
+            "legend": {
+              "isVisible": true,
+              "position": "right"
+            },
+            "preferredSeriesType": "bar_horizontal",
+            "layers": [
+              {
+                "layerId": "3f111e4e-2eaf-4e3b-a135-2235557cf965",
+                "accessors": [
+                  "3148822e-85d2-4a6b-b84b-45a1f6905fc4"
+                ],
+                "position": "top",
+                "seriesType": "bar_horizontal",
+                "showGridlines": false,
+                "xAccessor": "6414e9f7-10a3-4a32-976c-fdc3ffb5d56a",
+                "splitAccessor": "c57a4a73-1a40-4cfe-a82a-6fe8b88032c7"
+              }
+            ]
+          },
+          "query": {
+            "query": "",
+            "language": "kuery"
+          },
+          "filters": []
+        }
+      },
+      "references": [],
+      "migrationVersion": {
+        "lens": "7.7.0"
+      }
+    }
+  ]
+}

@@ -4,22 +4,14 @@ Created on Thu Jun  4 16:06:16 2020
 
 @author: Telemachos Chatzitheodorou
 """
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
-import logging
 import time
+from Logger import get_logger
 
-LOG_LEVEL = logging.DEBUG
-
-diagnostic = logging.getLogger('diagnostic')
-diagnostic.setLevel(LOG_LEVEL)
-
-handler = logging.StreamHandler()
-handler.setLevel(LOG_LEVEL)
-
-formatter = logging.Formatter("[%(levelname)s] %(asctime)s - %(name)s - %(filename)s - %(message)s")
-handler.setFormatter(formatter)
-
-diagnostic.addHandler(handler)
+diagnostic = get_logger()
 
 # Test message
 API = "eurostat"
